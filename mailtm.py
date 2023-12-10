@@ -59,7 +59,7 @@ def get_mailtm_token(address, password):
     return r["token"]
 
 def get_mailtm_account_id(token):
-    headers = {"Authorization": "Bearer " + token}
+    headers = {"Authorization": "Bearer" + token}
     def _acc_id_req():
         return requests.get("https://api.mail.tm/accounts", headers=headers)
 
@@ -67,7 +67,7 @@ def get_mailtm_account_id(token):
     return r["hydra:member"][0]["id"]
 
 def get_latest_email(token, account_id):
-    headers = {"Authorization": "Bearer " + token}
+    headers = {"Authorization": "Bearer" + token}
     def _email_req():
         return requests.get("https://api.mail.tm/messages", headers=headers, params={"to": account_id})
 
